@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import org.apache.http.protocol.HTTP;
@@ -66,6 +67,8 @@ public class MainActivity extends ActionBarActivity
         super.onResume();
         dataSource.open();
         backgroundMusic.onResume();
+        tracker.setScreenName("me.creativei.gandhi.MainActivity");
+        tracker.send(new HitBuilders.AppViewBuilder().build());
     }
 
     @Override
@@ -99,6 +102,7 @@ public class MainActivity extends ActionBarActivity
                 String[] packageName = new String[]{"me.creativei.quotes", "me.creativei.dussera", "me.creativei.everyday", "me.creativei.diwali"};
                 intent.setData(Uri.parse("market://details?id=" + packageName[position - 2]));
                 startActivity(intent);
+                tracker.send(new HitBuilders.EventBuilder("XMARKET", "CLICK").set("PACKAGE", packageName[position - 2]).build());
                 break;
             case 6:
                 intent = new Intent(Intent.ACTION_VIEW);
@@ -176,6 +180,7 @@ public class MainActivity extends ActionBarActivity
         int resId = state ? R.string.quote_favorited : R.string.quote_unfavorited;
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
         dataSetChangedListener.notifyDataSetChanged();
+        tracker.send(new HitBuilders.EventBuilder("QUOTES", state ? "FAVORITE" : "UNFAVORITE").set("ID", Integer.toString(currentQuote._id)).build());
     }
 
     public void shareCurrentQuote() {
