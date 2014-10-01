@@ -23,7 +23,7 @@ public class QuotePagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int i) {
         Quote quote = quoteDataSource.getQuote(i, favorite);
         int count = quoteDataSource.count(favorite);
-        return QuoteFragment.newInstance(quote, count);
+        return QuoteFragment.newInstance(quote, i, count);
     }
 
     @Override
