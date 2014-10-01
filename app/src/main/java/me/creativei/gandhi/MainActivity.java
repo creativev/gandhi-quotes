@@ -2,6 +2,7 @@ package me.creativei.gandhi;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -89,6 +90,20 @@ public class MainActivity extends ActionBarActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragment_pager, PagerFragment.newInstance(position))
                         .commit();
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                String[] packageName = new String[]{"me.creativei.quotes", "me.creativei.dussera", "me.creativei.everyday", "me.creativei.diwali"};
+                intent.setData(Uri.parse("market://details?id=" + packageName[position - 2]));
+                startActivity(intent);
+                break;
+            case 6:
+                intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://search?q=pub:creativei.me"));
+                startActivity(intent);
                 break;
         }
     }
