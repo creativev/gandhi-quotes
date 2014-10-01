@@ -2,9 +2,11 @@ package me.creativei.gandhi;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import static me.creativei.gandhi.Utils.LOG_TAG;
 import static me.creativei.gandhi.Utils.PREF_MUSIC;
 
 public class BackgroundMusic {
@@ -23,6 +25,7 @@ public class BackgroundMusic {
     }
 
     public void onOptionsItemSelected(MenuItem item) {
+        Log.d(LOG_TAG, "Music menu clicked");
         if (!item.isChecked()) {
             if (!mediaPlayer.isPlaying())
                 mediaPlayer.start();
@@ -34,5 +37,21 @@ public class BackgroundMusic {
             utils.savePreference(PREF_MUSIC, false);
             item.setChecked(false);
         }
+    }
+
+    public void onResume() {
+        boolean playMusic = utils.getPreferenceValue(PREF_MUSIC, true);
+        if (playMusic)
+            mediaPlayer.start();
+    }
+
+    public void onPause() {
+        if (mediaPlayer.isPlaying())
+            mediaPlayer.pause();
+    }
+
+    public void onStop() {
+        if (mediaPlayer.isPlaying())
+            mediaPlayer.stop();
     }
 }

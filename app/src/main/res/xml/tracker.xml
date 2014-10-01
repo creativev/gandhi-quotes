@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ga_trackingId">UA-39102274-6</string>
+    <integer name="ga_sessionTimeout">600</integer>
+    <screenName name="me.creativei.gandhi.MainActivity">Main Screen</screenName>
+</resources>
