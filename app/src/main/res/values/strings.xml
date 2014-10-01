@@ -4,15 +4,27 @@
     <string name="app_name">Gandhi Quotes</string>
     <string name="app_desc">Gandhi Quotes - Message of Peace and Non Violence</string>
     <string name="image_content_desc">Mohandas Karamchand Gandhi aka Mahatma Gandhi</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="gandhi_quotes">Gandhi Quotes</string>
+    <string name="favorite_quotes">Favorite Quotes</string>
+    <string name="teacher_quotes">Teachers Quotes</string>
+    <string name="dussera_quotes">Dussera Quotes</string>
+    <string name="celebrate_today">Quotes for Every Day</string>
+    <string name="diwali_quotes">Diwali Quotes</string>
+    <string name="other_apps">All Apps by CreativeI</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About Us</string>
     <string name="menu_music">Music</string>
     <string name="ad_unit_id">ca-app-pub-6639475559641591/2978945868</string>
     <string name="text_def_counter">1 of 200</string>
     <string name="text_def_quote">Quote</string>
+    <string name="share">Share</string>
+    <string name="favorite">Favorite</string>
+    <string name="about_msg"><![CDATA[Gandhi Quotes App v1.0<br />Amiruddin Nagri<br /><br /><a href="http://www.creativei.me">http://www.creativei.me</a>]]></string>
+    <string name="ok">OK</string>
+    <string name="settings_screen_awake">Screen Awake</string>
+    <string name="quote_favorited">Quote added to favorites</string>
+    <string name="quote_unfavorited">Quote removed from favorites</string>
+    <string name="no_quote">No Quotes to Display. Select other theme from drawer to view quotes.</string>
 </resources>

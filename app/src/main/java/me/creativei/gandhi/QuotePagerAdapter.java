@@ -15,6 +15,11 @@ public class QuotePagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
+
+    @Override
     public Fragment getItem(int i) {
         Quote quote = quoteDataSource.getQuote(i, favorite);
         int count = quoteDataSource.count(favorite);
@@ -23,6 +28,8 @@ public class QuotePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return quoteDataSource.count(favorite);
+        // To display blank page
+        int count = quoteDataSource.count(favorite);
+        return Math.max(1, count);
     }
 }

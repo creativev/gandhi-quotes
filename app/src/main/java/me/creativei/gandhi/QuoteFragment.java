@@ -46,6 +46,10 @@ public class QuoteFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (quote == null) {
+            return inflater.inflate(R.layout.blank_quote, container, false);
+        }
+
         View view = inflater.inflate(R.layout.fragment_quote, container, false);
         ((ImageView) view.findViewById(R.id.imageAuthor)).setImageResource(Utils.getResource(quote.image(), R.drawable.class));
         TextView quote = (TextView) view.findViewById(R.id.textQuote);

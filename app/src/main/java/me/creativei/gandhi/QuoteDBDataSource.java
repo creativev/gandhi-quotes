@@ -49,7 +49,6 @@ public class QuoteDBDataSource implements QuoteDataSource {
         }
     }
 
-    @Override
     public void setFavorite(int id, boolean favorite) {
         ContentValues values = new ContentValues();
         values.put(FAVORITE_COL, favorite ? 1 : 0);

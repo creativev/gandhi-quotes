@@ -1,8 +1,13 @@
 package me.creativei.gandhi;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.WindowManager;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -16,6 +21,8 @@ import static android.content.Context.MODE_PRIVATE;
 public class Utils {
     public static String LOG_TAG = "GANDHIQUOTES";
     public static String PREF_MUSIC = "PREF_MUSIC";
+    public static final String PREF_KEEP_SCREEN_ON = "KEEP_SCREEN_ON";
+
     private final Activity activity;
     private Typeface font;
 
@@ -66,5 +73,47 @@ public class Utils {
 
     public Typeface getQuoteFont() {
         return font;
+    }
+
+    public void aboutDialog() {
+        new AlertDialog.Builder(activity)
+                .setTitle(R.string.app_name)
+                .setMessage(
+                        Html.fromHtml(activity.getResources().getString(
+                                R.string.about_msg)))
+                .setIcon(R.drawable.ic_launcher).setCancelable(true)
+                .setPositiveButton(R.string.ok, null).create().show();
+
+    }
+
+    public void showHelpOverlay() {
+//        final View pager = activity.findViewById(R.id.pager);
+//        pager.setVisibility(View.INVISIBLE);
+//        final View instructionsContainer = activity.findViewById(R.id.container_help);
+//        instructionsContainer.setVisibility(View.VISIBLE);
+//        instructionsContainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                instructionsContainer.setVisibility(View.INVISIBLE);
+//                pager.setVisibility(View.VISIBLE);
+//            }
+//        });
+    }
+
+    public void screenWakeMenuClicked(MenuItem item) {
+        boolean wasScreenWakeOn = item.isChecked();
+        boolean isScreenWakeOn = !wasScreenWakeOn;
+        savePreference(PREF_KEEP_SCREEN_ON, isScreenWakeOn);
+        syncScreenWakeMenu(item, isScreenWakeOn);
+    }
+
+    public void syncScreenWakeMenu(MenuItem item, boolean isScreenWakeOn) {
+        item.setChecked(isScreenWakeOn);
+        item.setIcon(isScreenWakeOn ? R.drawable.ic_screen_on : R.drawable.ic_screen_off);
+        if (isScreenWakeOn) {
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        } else {
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 }

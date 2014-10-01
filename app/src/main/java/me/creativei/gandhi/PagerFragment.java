@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 public class PagerFragment extends Fragment {
     private static final String FAVORITE_QUOTES = "FAVORITE_QUOTES";
     private MainActivity activity;
+    private ViewPager viewPager;
+    private boolean themeIsFavorite;
+    private QuotePagerAdapter pagerAdapter;
 
     public PagerFragment() {
     }
@@ -32,9 +35,25 @@ public class PagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewPager view = (ViewPager) inflater.inflate(R.layout.fragment_pager, container, false);
-        view.setAdapter(new QuotePagerAdapter(activity.getSupportFragmentManager(), activity, getArguments().getBoolean(FAVORITE_QUOTES)));
-        return view;
+        themeIsFavorite = getArguments().getBoolean(FAVORITE_QUOTES);
+        viewPager = (ViewPager) inflater.inflate(R.layout.fragment_pager, container, false);
+        pagerAdapter = new QuotePagerAdapter(activity.getSupportFragmentManager(), activity, themeIsFavorite);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+                if (positionOffset != 0) return;
+                activity.onQuoteSelected(position, themeIsFavorite);
+            }
+        });
+        activity.setDataSetChangedListener(new DataSetChangedListener() {
+            @Override
+            public void notifyDataSetChanged() {
+                pagerAdapter.notifyDataSetChanged();
+            }
+        });
+        return viewPager;
     }
 
     @Override
