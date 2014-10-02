@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 public class PagerFragment extends Fragment {
     private static final String FAVORITE_QUOTES = "FAVORITE_QUOTES";
+    public static final String LAST_VISITED_PAGE = "LAST_VISITED_PAGE";
     private MainActivity activity;
     private ViewPager viewPager;
     private boolean themeIsFavorite;
@@ -45,8 +46,13 @@ public class PagerFragment extends Fragment {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 if (positionOffset != 0) return;
                 activity.onQuoteSelected(position, themeIsFavorite);
+
+                if (!themeIsFavorite)
+                    new Utils(activity).savePreference(LAST_VISITED_PAGE, position);
             }
         });
+        if (!themeIsFavorite)
+            viewPager.setCurrentItem(new Utils(activity).getPreferenceValue(LAST_VISITED_PAGE, 0), false);
         activity.setDataSetChangedListener(new DataSetChangedListener() {
             @Override
             public void notifyDataSetChanged() {

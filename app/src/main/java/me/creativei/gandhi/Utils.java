@@ -35,6 +35,11 @@ public class Utils {
         return preferences.getBoolean(key, defaultValue);
     }
 
+    public int getPreferenceValue(String key, int defaultValue) {
+        SharedPreferences preferences = activity.getPreferences(MODE_PRIVATE);
+        return preferences.getInt(key, defaultValue);
+    }
+
     public BackgroundMusic createMediaPlayer() {
         return new BackgroundMusic(activity, R.raw.raghupati);
     }
@@ -43,6 +48,13 @@ public class Utils {
         SharedPreferences preferences = activity.getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(key, value);
+        editor.apply();
+    }
+
+    public void savePreference(String key, int value) {
+        SharedPreferences preferences = activity.getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(key, value);
         editor.apply();
     }
 
