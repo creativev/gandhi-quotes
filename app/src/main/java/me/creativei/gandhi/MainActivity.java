@@ -179,8 +179,8 @@ public class MainActivity extends ActionBarActivity
         dataSource.setFavorite(currentQuote._id, state);
         int resId = state ? R.string.quote_favorited : R.string.quote_unfavorited;
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
-        dataSetChangedListener.notifyDataSetChanged();
         tracker.send(new HitBuilders.EventBuilder("QUOTES", state ? "FAVORITE" : "UNFAVORITE").set("ID", Integer.toString(currentQuote._id)).build());
+        dataSetChangedListener.notifyDataSetChanged();
     }
 
     public void shareCurrentQuote() {
