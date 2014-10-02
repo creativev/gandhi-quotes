@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.text.Html;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
@@ -86,18 +85,10 @@ public class Utils {
 
     }
 
-    public void showHelpOverlay() {
-//        final View pager = activity.findViewById(R.id.pager);
-//        pager.setVisibility(View.INVISIBLE);
-//        final View instructionsContainer = activity.findViewById(R.id.container_help);
-//        instructionsContainer.setVisibility(View.VISIBLE);
-//        instructionsContainer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                instructionsContainer.setVisibility(View.INVISIBLE);
-//                pager.setVisibility(View.VISIBLE);
-//            }
-//        });
+    public void showHelpDialog() {
+        new AlertDialog.Builder(activity).setTitle("Help")
+                .setMessage(Html.fromHtml(activity.getResources().getString(R.string.instructions)))
+                .setCancelable(true).setPositiveButton(R.string.ok, null).create().show();
     }
 
     public void screenWakeMenuClicked(MenuItem item) {

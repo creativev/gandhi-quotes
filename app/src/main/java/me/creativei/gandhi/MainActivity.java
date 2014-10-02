@@ -155,7 +155,7 @@ public class MainActivity extends ActionBarActivity
                 utils.aboutDialog();
                 return true;
             case R.id.menu_help:
-                utils.showHelpOverlay();
+                utils.showHelpDialog();
                 return true;
         }
         return super.onOptionsItemSelected(item);

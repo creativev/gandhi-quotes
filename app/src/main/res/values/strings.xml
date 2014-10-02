@@ -27,4 +27,14 @@
     <string name="quote_favorited">Quote added to favorites</string>
     <string name="quote_unfavorited">Quote removed from favorites</string>
     <string name="no_quote">No Quotes to Display. Select other theme from drawer to view quotes.</string>
+    <string name="instructions"><![CDATA[<b>Instructions</b><br/>
+    1. Swipe Left/Right to navigate forward and backwards<br/>
+    2. Use the Toolbar to Favorite and Share<br/>
+    3. Control Music using Menu<br/>
+    4. Navigate to Favorite Quotes using the Drawer (icon on top left corner)<br/>
+    5. Go to other Quote Apps using the Drawer<br/>
+    6. Prevent screen going to sleep using Menu<br/>
+    7. Get instruction screen from Menu<br/><br/>
+    <i>Please give feedback/rate us for improved apps</i>
+        ]]></string>
 </resources>
