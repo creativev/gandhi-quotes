@@ -70,7 +70,9 @@ public class Utils {
 
     public Tracker initAnalytics() {
         GoogleAnalytics analytics = GoogleAnalytics.getInstance(activity);
-        return analytics.newTracker(R.xml.tracker);
+        Tracker tracker = analytics.newTracker(R.xml.tracker);
+        tracker.enableAdvertisingIdCollection(true);
+        return tracker;
     }
 
     public static int getResource(String resourceId, Class<?> idClass) {
