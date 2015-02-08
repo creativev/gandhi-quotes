@@ -1,4 +1,4 @@
-package me.creativei.gandhi;
+package co.creativev.gandhi;
 
 import android.os.Parcel;
 import android.os.Parcelable;

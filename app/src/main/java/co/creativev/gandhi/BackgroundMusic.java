@@ -1,4 +1,4 @@
-package me.creativei.gandhi;
+package co.creativev.gandhi;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
@@ -6,8 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import static me.creativei.gandhi.Utils.LOG_TAG;
-import static me.creativei.gandhi.Utils.PREF_MUSIC;
+import static co.creativev.gandhi.Utils.LOG_TAG;
+import static co.creativev.gandhi.Utils.PREF_MUSIC;
 
 public class BackgroundMusic {
     private final MediaPlayer mediaPlayer;

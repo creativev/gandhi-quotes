@@ -1,4 +1,4 @@
-package me.creativei.gandhi;
+package co.creativev.gandhi;
 
 import android.app.Activity;
 import android.graphics.Typeface;

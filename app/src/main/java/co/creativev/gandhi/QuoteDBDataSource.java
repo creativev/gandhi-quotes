@@ -1,4 +1,4 @@
-package me.creativei.gandhi;
+package co.creativev.gandhi;
 
 
 import android.content.ContentValues;
@@ -8,11 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import static android.provider.BaseColumns._ID;
-import static me.creativei.gandhi.QuotesTable.ALL_QUOTES_COLS;
-import static me.creativei.gandhi.QuotesTable.FAVORITE_COL;
-import static me.creativei.gandhi.QuotesTable.QUOTES_TABLE;
-import static me.creativei.gandhi.QuotesTable.QUOTE_COL;
-import static me.creativei.gandhi.Utils.LOG_TAG;
+import static co.creativev.gandhi.QuotesTable.ALL_QUOTES_COLS;
+import static co.creativev.gandhi.QuotesTable.FAVORITE_COL;
+import static co.creativev.gandhi.QuotesTable.QUOTES_TABLE;
+import static co.creativev.gandhi.QuotesTable.QUOTE_COL;
+import static co.creativev.gandhi.Utils.LOG_TAG;
 
 public class QuoteDBDataSource implements QuoteDataSource {
     private QuotesDbHelper databaseHelper;

@@ -21,7 +21,7 @@
     <string name="text_def_quote">Quote</string>
     <string name="share">Share</string>
     <string name="favorite">Favorite</string>
-    <string name="about_msg"><![CDATA[Gandhi Quotes App v1.0<br />Amiruddin Nagri<br /><br /><a href="http://www.creativei.me">http://www.creativei.me</a>]]></string>
+    <string name="about_msg"><![CDATA[Gandhi Quotes App v1.0<br />Amiruddin Nagri<br /><br /><a href="http://www.creativev.co">http://www.creativev.co</a>]]></string>
     <string name="ok">OK</string>
     <string name="settings_screen_awake">Screen Awake</string>
     <string name="quote_favorited">Quote added to favorites</string>
@@ -37,4 +37,8 @@
     7. Get instruction screen from Menu<br/><br/>
     <i>Please give feedback/rate us for improved apps</i>
         ]]></string>
+    <string name="market_url">market://search?q=pub:creativev.co</string>
+    <string-array name="other_apps">
+        <item>co.creativev.quotes</item>
+    </string-array>
 </resources>

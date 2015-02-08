@@ -1,4 +1,4 @@
-package me.creativei.gandhi;
+package co.creativev.gandhi;
 
 public interface QuoteMenuManager {
     public void favoriteCurrentQuote(boolean favorite);

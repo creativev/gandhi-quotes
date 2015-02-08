@@ -1,4 +1,4 @@
-package me.creativei.gandhi;
+package co.creativev.gandhi;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -67,7 +67,7 @@ public class MainActivity extends ActionBarActivity
         super.onResume();
         dataSource.open();
         backgroundMusic.onResume();
-        tracker.setScreenName("me.creativei.gandhi.MainActivity");
+        tracker.setScreenName("co.creativev.gandhi.MainActivity");
         tracker.send(new HitBuilders.AppViewBuilder().build());
     }
 
@@ -99,14 +99,14 @@ public class MainActivity extends ActionBarActivity
             case 4:
             case 5:
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                String[] packageName = new String[]{"me.creativei.quotes", "me.creativei.dussera", "me.creativei.everyday", "me.creativei.diwali"};
+                String[] packageName = getResources().getStringArray(R.array.other_apps);
                 intent.setData(Uri.parse("market://details?id=" + packageName[position - 2]));
                 startActivity(intent);
                 tracker.send(new HitBuilders.EventBuilder("XMARKET", "CLICK").set("PACKAGE", packageName[position - 2]).build());
                 break;
             case 6:
                 intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("market://search?q=pub:creativei.me"));
+                intent.setData(Uri.parse(getString(R.string.market_url)));
                 startActivity(intent);
                 break;
         }

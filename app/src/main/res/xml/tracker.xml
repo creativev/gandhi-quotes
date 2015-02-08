@@ -4,5 +4,5 @@
     <bool name="ga_autoActivityTracking">true</bool>
     <bool name="ga_reportUncaughtExceptions">true</bool>
     <integer name="ga_sessionTimeout">600</integer>
-    <screenName name="me.creativei.gandhi.MainActivity">Main Screen</screenName>
+    <screenName name="co.creativev.gandhi.MainActivity">Main Screen</screenName>
 </resources>
