@@ -22,16 +22,16 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <com.google.android.gms.ads.AdView
+        <com.inmobi.monetization.IMBanner
             android:id="@+id/adView"
-            android:minHeight="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            adSize="15"
+            appId="0a1022908b364f8291b4afa4a3927d54"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            ads:adSize="SMART_BANNER"
-            ads:adUnitId="@string/ad_unit_id" />
+            android:minHeight="50dp" />
     </RelativeLayout>
 
 

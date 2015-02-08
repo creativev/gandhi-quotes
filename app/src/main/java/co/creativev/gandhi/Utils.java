@@ -6,12 +6,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.text.Html;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.flurry.android.FlurryAgent;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.inmobi.commons.InMobi;
+import com.inmobi.monetization.IMBanner;
 
 import java.lang.reflect.Field;
 
@@ -59,13 +63,9 @@ public class Utils {
     }
 
     public void initAds() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("7187854231AB5A5B59198755F05B42CA")
-                .addTestDevice("D27BE559F36AC73AFA3ED3E64322B072")
-                .build();
-        AdView adView = (AdView) activity.findViewById(R.id.adView);
-        adView.loadAd(adRequest);
+        InMobi.initialize(activity, activity.getString(R.string.inmobi_id));
+        IMBanner adView = (IMBanner) activity.findViewById(R.id.adView);
+        adView.loadBanner();
     }
 
     public static int getResource(String resourceId, Class<?> idClass) {

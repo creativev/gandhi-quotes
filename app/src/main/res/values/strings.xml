@@ -36,6 +36,7 @@
         ]]></string>
     <string name="market_url">market://search?q=pub:creativev.co</string>
     <string name="flurry_analytics_id">K238CM399XS2ZGDYRP47</string>
+    <string name="inmobi_id">0a1022908b364f8291b4afa4a3927d54</string>
     <string-array name="other_apps">
         <item>co.creativev.quotes</item>
     </string-array>
