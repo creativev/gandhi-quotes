@@ -63,3 +63,7 @@
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 }
+
+#flurry
+-keep class com.flurry.** { *; }
+-dontwarn com.flurry.**

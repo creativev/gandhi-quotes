@@ -12,10 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.flurry.android.FlurryAgent;
 import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 
 import org.apache.http.protocol.HTTP;
+
+import java.util.HashMap;
 
 
 public class MainActivity extends ActionBarActivity
@@ -27,7 +29,6 @@ public class MainActivity extends ActionBarActivity
 
     private CharSequence mTitle;
     private Utils utils;
-    private Tracker tracker;
     private Menu menu;
     private Quote currentQuote;
     private DataSetChangedListener dataSetChangedListener;
@@ -53,13 +54,14 @@ public class MainActivity extends ActionBarActivity
         utils = new Utils(this);
         backgroundMusic = utils.createMediaPlayer();
         utils.initAds();
-        tracker = utils.initAnalytics();
+        FlurryAgent.init(this, getString(R.string.flurry_analytics_id));
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         dataSource.open();
+        FlurryAgent.onStartSession(this);
     }
 
     @Override
@@ -67,8 +69,6 @@ public class MainActivity extends ActionBarActivity
         super.onResume();
         dataSource.open();
         backgroundMusic.onResume();
-        tracker.setScreenName("co.creativev.gandhi.MainActivity");
-        tracker.send(new HitBuilders.AppViewBuilder().build());
     }
 
     @Override
@@ -82,6 +82,7 @@ public class MainActivity extends ActionBarActivity
     protected void onStop() {
         super.onStop();
         backgroundMusic.onStop();
+        FlurryAgent.onEndSession(this);
     }
 
     @Override
@@ -95,16 +96,12 @@ public class MainActivity extends ActionBarActivity
                         .commit();
                 break;
             case 2:
-            case 3:
-            case 4:
-            case 5:
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 String[] packageName = getResources().getStringArray(R.array.other_apps);
                 intent.setData(Uri.parse("market://details?id=" + packageName[position - 2]));
                 startActivity(intent);
-                tracker.send(new HitBuilders.EventBuilder("XMARKET", "CLICK").set("PACKAGE", packageName[position - 2]).build());
                 break;
-            case 6:
+            default:
                 intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(getString(R.string.market_url)));
                 startActivity(intent);
@@ -179,7 +176,9 @@ public class MainActivity extends ActionBarActivity
         dataSource.setFavorite(currentQuote._id, state);
         int resId = state ? R.string.quote_favorited : R.string.quote_unfavorited;
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
-        tracker.send(new HitBuilders.EventBuilder("QUOTES", state ? "FAVORITE" : "UNFAVORITE").set("ID", Integer.toString(currentQuote._id)).build());
+        FlurryAgent.logEvent(state ? "FAVORITE" : "UNFAVORITE", new HashMap<String, String>() {{
+            put("ID", Integer.toString(currentQuote._id));
+        }});
         dataSetChangedListener.notifyDataSetChanged();
     }
 

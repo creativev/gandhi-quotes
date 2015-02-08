@@ -7,9 +7,6 @@
     <string name="gandhi_quotes">Gandhi Quotes</string>
     <string name="favorite_quotes">Favorite Quotes</string>
     <string name="teacher_quotes">Teachers Quotes</string>
-    <string name="dussera_quotes">Dussera Quotes</string>
-    <string name="celebrate_today">Quotes for Every Day</string>
-    <string name="diwali_quotes">Diwali Quotes</string>
     <string name="other_apps">All Apps by CreativeI</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -38,6 +35,7 @@
     <i>Please give feedback/rate us for improved apps</i>
         ]]></string>
     <string name="market_url">market://search?q=pub:creativev.co</string>
+    <string name="flurry_analytics_id">K238CM399XS2ZGDYRP47</string>
     <string-array name="other_apps">
         <item>co.creativev.quotes</item>
     </string-array>

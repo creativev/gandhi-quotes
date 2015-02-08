@@ -2,16 +2,16 @@ package co.creativev.gandhi;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.text.Html;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.flurry.android.FlurryAgent;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
 
 import java.lang.reflect.Field;
 
@@ -66,13 +66,6 @@ public class Utils {
                 .build();
         AdView adView = (AdView) activity.findViewById(R.id.adView);
         adView.loadAd(adRequest);
-    }
-
-    public Tracker initAnalytics() {
-        GoogleAnalytics analytics = GoogleAnalytics.getInstance(activity);
-        Tracker tracker = analytics.newTracker(R.xml.tracker);
-        tracker.enableAdvertisingIdCollection(true);
-        return tracker;
     }
 
     public static int getResource(String resourceId, Class<?> idClass) {

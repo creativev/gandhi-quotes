@@ -104,9 +104,6 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.gandhi_quotes),
                         getString(R.string.favorite_quotes),
                         getString(R.string.teacher_quotes),
-                        getString(R.string.dussera_quotes),
-                        getString(R.string.celebrate_today),
-                        getString(R.string.diwali_quotes),
                         getString(R.string.other_apps),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);

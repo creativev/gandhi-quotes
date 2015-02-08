@@ -19,7 +19,7 @@ import static co.creativev.gandhi.Utils.LOG_TAG;
 
 public class QuotesDbHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
-    private static final String DB_NAME = "creativei.quotes.db";
+    private static final String DB_NAME = "co.creativev.quotes.db";
 
     private static final String CREATE_TABLE_QUOTES_STMT = "CREATE TABLE "
             + QUOTES_TABLE + " (" + _ID
